@@ -2,6 +2,10 @@
   "name": "@wesleythorsen/enumerable-js",
   "version": "0.1.0",
   "description": "A TypeScript based LINQ implementation with deferred execution",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/wesleythorsen1/enumerable-js"
+  },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
