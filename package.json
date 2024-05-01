@@ -1,0 +1,36 @@
+{
+  "name": "enumerable-js",
+  "version": "0.1.0",
+  "description": "A TypeScript based LINQ implementation with deferred execution",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "scripts": {
+    "build": "concurrently 'npm:build:cjs' 'npm:build:es' 'npm:build:types'",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^20.11.19",
+    "concurrently": "7.0.0",
+    "eslint": "8.36.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "eslint-plugin-sort-export-all": "1.2.2",
+    "eslint-plugin-tsdoc": "0.2.17",
+    "lint-staged": "^10.0.1",
+    "prettier": "2.8.5",
+    "rimraf": "3.0.2",
+    "ts-jest": "29.1.1",
+    "ts-node": "10.9.1",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "dist-*/**"
+  ]
+}
