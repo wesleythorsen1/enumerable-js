@@ -56,6 +56,7 @@ export class Enumerable<T> {
   public groupBy = methods.groupBy;
   public intersect = methods.intersect;
   public intersectBy = methods.intersectBy;
+  public leftJoin = methods.leftJoin;
   public map = methods.map;
   public max = methods.max;
   public maxBy = methods.maxBy;

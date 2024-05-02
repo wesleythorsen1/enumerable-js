@@ -15,6 +15,7 @@ export * from "./firstOrDefaultBy";
 export * from "./groupBy";
 export * from "./intersect";
 export * from "./intersectBy";
+export * from "./leftJoin";
 export * from "./map";
 export * from "./max";
 export * from "./maxBy";

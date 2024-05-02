@@ -1,7 +1,8 @@
 {
   "name": "@wesleythorsen/enumerable-js",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A TypeScript based LINQ implementation with deferred execution",
+  "private": false,
   "repository": {
     "type": "github",
     "url": "https://github.com/wesleythorsen1/enumerable-js"
