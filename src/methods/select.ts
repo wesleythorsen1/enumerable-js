@@ -1,4 +1,4 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function select<T, TResult>(this: Enumerable<T>, selector: (element: T) => TResult) {
   const inner = this;

@@ -1,5 +1,5 @@
 /**
- * Typesafe Object.entries(...)
+ * Type safe Object.entries(...)
  * @param record
  */
 export function* iterateRecord<TKey extends keyof any, TValue>(record: Record<TKey, TValue>) {

@@ -1,4 +1,4 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function max<T>(this: Enumerable<T>) {
   return this.maxBy(x => x);

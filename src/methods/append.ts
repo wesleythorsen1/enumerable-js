@@ -1,4 +1,4 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function append<T>(this: Enumerable<T>, value: T) {
   const inner = this;

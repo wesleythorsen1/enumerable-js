@@ -1,5 +1,5 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
-export function toArray<T>(this: Enumerable<T>): Array<T> {
+export function toArray<T>(this: Enumerable<T>): T[] {
   return [...this];
 }

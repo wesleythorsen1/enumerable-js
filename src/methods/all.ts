@@ -1,4 +1,4 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function all<T>(this: Enumerable<T>, predicate: (element: T) => boolean): boolean {
   for (const element of this) {

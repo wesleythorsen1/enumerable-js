@@ -1,4 +1,4 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function distinctBy<T, TKey>(this: Enumerable<T>, selector: (element: T) => TKey) {
   const inner = this;

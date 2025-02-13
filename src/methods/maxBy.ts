@@ -1,4 +1,4 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function maxBy<T, TValue>(this: Enumerable<T>, selector: (element: T) => TValue) {
   let max: T | null = null;

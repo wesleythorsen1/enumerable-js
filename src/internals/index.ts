@@ -1,2 +1,2 @@
-export * from "./iterateRecord";
-export * from "./toLookupIntermediary";
+export * from './iterateRecord';
+export * from './toLookupIntermediary';

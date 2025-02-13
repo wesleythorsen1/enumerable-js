@@ -1,4 +1,4 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function repeat<TValue>(value: TValue, count: number) {
   function* generator() {

@@ -1,9 +1,9 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function unionBy<T, TKey>(
   this: Enumerable<T>,
   enumerable: Enumerable<T>,
-  selector: (element: T) => TKey
+  selector: (element: T) => TKey,
 ) {
   const inner = this;
   const set = new Set<TKey>();

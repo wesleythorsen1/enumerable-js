@@ -1,4 +1,4 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function count<T>(this: Enumerable<T>) {
   let i = 0;

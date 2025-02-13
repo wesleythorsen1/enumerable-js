@@ -1,4 +1,4 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function where<T>(this: Enumerable<T>, predicate: (element: T) => boolean) {
   const source = this.source;

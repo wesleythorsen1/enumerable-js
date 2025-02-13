@@ -1,8 +1,8 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function toLookupIntermediary<TKey extends keyof any, T>(
   enumerable: Enumerable<T>,
-  keySelector: (element: T) => TKey
+  keySelector: (element: T) => TKey,
 ) {
   // using intermediary with T[] to avoid Enumerable.append() max call stack
   const lookup = {} as Record<TKey, T[]>;

@@ -1,7 +1,7 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function batch<T>(this: Enumerable<T>, size: number) {
-  if (size <= 0) throw new Error("batch size must be larger than 0");
+  if (size <= 0) throw new Error('batch size must be larger than 0');
 
   const inner = this;
 

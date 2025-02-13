@@ -1,7 +1,7 @@
-import { Enumerable } from "../Enumerable";
+import { Enumerable } from '../Enumerable';
 
 export function take<T>(this: Enumerable<T>, count: number) {
-  if (count <= 0) throw new Error("take count must be 0 or larger");
+  if (count <= 0) throw new Error('take count must be 0 or larger');
 
   const inner = this;
 

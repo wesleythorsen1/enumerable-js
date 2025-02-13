@@ -1,9 +1,9 @@
-import { Enumerable } from "../Enumerable";
-import { iterateRecord, toLookupIntermediary } from "../internals";
+import { Enumerable } from '../Enumerable';
+import { iterateRecord, toLookupIntermediary } from '../internals';
 
 export function toLookup<T, TKey extends keyof any>(
   this: Enumerable<T>,
-  keySelector: (element: T) => TKey
+  keySelector: (element: T) => TKey,
 ): Record<TKey, Enumerable<T>> {
   const intermediary = toLookupIntermediary(this, keySelector);
 
