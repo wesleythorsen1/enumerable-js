@@ -1,11 +1,13 @@
 import { Enumerable } from "../Enumerable";
 
-export function map<T, TResult>(this: Enumerable<T>, selector: (element: T) => TResult) {
+export function where<T>(this: Enumerable<T>, predicate: (element: T) => boolean) {
   const inner = this;
 
   function* generator() {
     for (const element of inner) {
-      yield selector(element);
+      if (predicate(element)) {
+        yield element;
+      }
     }
   }
 

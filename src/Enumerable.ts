@@ -15,10 +15,8 @@ export class Enumerable<T> {
 
   // factory method
   public static from<T>(
-    value:
-      | { [Symbol.iterator]: () => IterableIterator<T> }
-      | ((...args: [] | [any]) => Generator<T>),
-    ...args: [] | [any]
+    value: { [Symbol.iterator]: () => IterableIterator<T> } | ((...args: any[]) => Generator<T>),
+    ...args: any[]
   ) {
     if (typeof value === "function") {
       const generatorFunc = value as (...args: [] | [any]) => Generator<T>;
@@ -48,7 +46,6 @@ export class Enumerable<T> {
   public count = methods.count;
   public distinct = methods.distinct;
   public distinctBy = methods.distinctBy;
-  public filter = methods.filter;
   public first = methods.first;
   public firstBy = methods.firstBy;
   public firstOrDefault = methods.firstOrDefault;
@@ -57,11 +54,11 @@ export class Enumerable<T> {
   public intersect = methods.intersect;
   public intersectBy = methods.intersectBy;
   public leftJoin = methods.leftJoin;
-  public map = methods.map;
   public max = methods.max;
   public maxBy = methods.maxBy;
   public min = methods.min;
   public minBy = methods.minBy;
+  public select = methods.select;
   public skip = methods.skip;
   public take = methods.take;
   public toArray = methods.toArray;
@@ -70,14 +67,5 @@ export class Enumerable<T> {
   public toSet = methods.toSet;
   public union = methods.union;
   public unionBy = methods.unionBy;
-
-  /**
-   * Alias for `.map()`
-   */
-  public select = methods.map;
-
-  /**
-   * Alias for `.filter()`
-   */
-  public where = methods.filter;
+  public where = methods.where;
 }

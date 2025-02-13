@@ -1,13 +1,11 @@
 import { Enumerable } from "../Enumerable";
 
-export function filter<T>(this: Enumerable<T>, predicate: (element: T) => boolean) {
+export function select<T, TResult>(this: Enumerable<T>, selector: (element: T) => TResult) {
   const inner = this;
 
   function* generator() {
     for (const element of inner) {
-      if (predicate(element)) {
-        yield element;
-      }
+      yield selector(element);
     }
   }
 
