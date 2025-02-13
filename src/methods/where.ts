@@ -1,15 +1,15 @@
 import { Enumerable } from "../Enumerable";
 
 export function where<T>(this: Enumerable<T>, predicate: (element: T) => boolean) {
-  const inner = this;
+  const source = this.source;
 
-  function* generator() {
-    for (const element of inner) {
-      if (predicate(element)) {
-        yield element;
+  return Enumerable.from({
+    *[Symbol.iterator]() {
+      for (const element of source) {
+        if (predicate(element)) {
+          yield element;
+        }
       }
-    }
-  }
-
-  return Enumerable.from(generator);
+    },
+  });
 }
