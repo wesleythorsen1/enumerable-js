@@ -1,6 +1,9 @@
-import { Enumerable } from '../Enumerable';
+import { IEnumerable } from '../IEnumerable';
 
-export function all<T>(this: Enumerable<T>, predicate: (element: T) => boolean): boolean {
+export function all<TSource>(
+  this: IEnumerable<TSource>,
+  predicate: (element: TSource) => boolean,
+): boolean {
   for (const element of this) {
     if (!predicate(element)) return false;
   }

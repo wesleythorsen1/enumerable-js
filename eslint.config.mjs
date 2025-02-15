@@ -16,6 +16,7 @@ export default tseslint.config(
       '@typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
+      '@typescript-eslint/unified-signatures': 'off',
       // '@typescript-eslint/ban-ts-comment': 'warn',
       // '@typescript-eslint/no-unused-vars': 'off',
       // 'simple-import-sort/imports': 'error',

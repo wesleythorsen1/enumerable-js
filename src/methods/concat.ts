@@ -1,17 +1,23 @@
 import { Enumerable } from '../Enumerable';
+import { IEnumerable } from '../IEnumerable';
 
-export function concat<T, TInner>(this: Enumerable<T>, enumerable: Enumerable<TInner>) {
-  const inner = this;
+export function concat<TSource>(
+  this: IEnumerable<TSource>,
+  enumerable: IEnumerable<TSource>,
+): IEnumerable<TSource> {
+  const source = this;
 
-  function* generator() {
-    for (const element of inner) {
-      yield element;
-    }
+  const result = {
+    *[Symbol.iterator]() {
+      for (const element of source) {
+        yield element;
+      }
 
-    for (const element of enumerable) {
-      yield element;
-    }
-  }
+      for (const element of enumerable) {
+        yield element;
+      }
+    },
+  };
 
-  return Enumerable.from(generator);
+  return Object.setPrototypeOf(result, Enumerable.prototype) as IEnumerable<TSource>;
 }

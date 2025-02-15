@@ -1,15 +1,18 @@
 import { Enumerable } from '../Enumerable';
+import { IEnumerable } from '../IEnumerable';
 
-export function append<T>(this: Enumerable<T>, value: T) {
-  const inner = this;
+export function append<TSource>(this: IEnumerable<TSource>, value: TSource): IEnumerable<TSource> {
+  const source = this;
 
-  function* generator() {
-    for (const element of inner) {
-      yield element;
-    }
+  const result = {
+    *[Symbol.iterator]() {
+      for (const element of source) {
+        yield element;
+      }
 
-    yield value;
-  }
+      yield value;
+    },
+  };
 
-  return Enumerable.from(generator);
+  return Object.setPrototypeOf(result, Enumerable.prototype) as IEnumerable<TSource>;
 }

@@ -1,9 +1,9 @@
 import { Enumerable } from '../Enumerable';
 import { IEnumerable } from '../IEnumerable';
 
-export function select<TSource, TResult>(
+export function selectMany<TSource, TResult>(
   this: IEnumerable<TSource>,
-  selector: (element: TSource, i: number) => TResult,
+  selector: (element: TSource, i: number) => IEnumerable<TResult>,
 ): IEnumerable<TResult> {
   const source = this;
 
@@ -11,7 +11,9 @@ export function select<TSource, TResult>(
     *[Symbol.iterator]() {
       let i = 0;
       for (const element of source) {
-        yield selector(element, i++);
+        for (const innerElement of selector(element, i++)) {
+          yield innerElement;
+        }
       }
     },
   };

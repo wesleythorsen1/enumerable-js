@@ -1,9 +1,17 @@
-import { Enumerable } from '../Enumerable';
+import { IEnumerable } from '../IEnumerable';
 
-export function count<T>(this: Enumerable<T>) {
+export function count<TSource>(this: IEnumerable<TSource>): number;
+export function count<TSource>(
+  this: IEnumerable<TSource>,
+  predicate: (element: TSource) => boolean = _ => true,
+): number {
   let i = 0;
 
-  for (const element of this) i++;
+  for (const element of this) {
+    if (predicate(element)) {
+      i++;
+    }
+  }
 
   return i;
 }

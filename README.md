@@ -25,11 +25,11 @@ const cities = [
 ];
 
 let largestWarmCity = Enumerable.from(cities)
-  .where(c => c.climate === "warm") // alias for .filter()
+  .where(c => c.climate === "warm")
   .maxBy(c => c.population);
 ```
 
-Implemented Methods:
+Methods:
 
 - all
 - any
@@ -40,7 +40,6 @@ Implemented Methods:
 - distinct
 - distinctBy
 - empty
-- filter
 - first
 - firstBy
 - firstOrDefault
@@ -48,14 +47,13 @@ Implemented Methods:
 - groupBy
 - intersect
 - intersectBy
-- map
 - max
 - maxBy
 - min
 - minBy
 - range
 - repeat
-- select (alias to map)
+- select
 - skip
 - take
 - toArray

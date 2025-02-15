@@ -1,6 +1,4 @@
 {
-  "include": ["src/", "test/"],
-  "exclude": ["node_modules/"],
   "compilerOptions": {
     "baseUrl": ".",
     "downlevelIteration": true,
@@ -14,6 +12,10 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "outDir": "./dist",
+    "paths": {
+      "@src": ["./src"],
+      "@src/*": ["./src/*"]
+    },
     "preserveConstEnums": true,
     "removeComments": true,
     "resolveJsonModule": true,
@@ -24,5 +26,10 @@
     "target": "ES2022",
     "typeRoots": ["./node_modules/@types"],
     "types": ["node", "jest"]
+  },
+  "exclude": ["build/", "coverage/", "dist/", "node_modules/", "outputs/"],
+  "include": ["src/", "test/"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
   }
 }

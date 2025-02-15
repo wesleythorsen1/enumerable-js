@@ -1,21 +1,25 @@
 import { Enumerable } from '../Enumerable';
+import { IEnumerable } from '../IEnumerable';
 
-export function skip<T>(this: Enumerable<T>, count: number) {
-  if (count <= 0) throw new Error('skip count must be 0 or larger');
+export function skip<TSource>(this: IEnumerable<TSource>, count: number): IEnumerable<TSource> {
+  if (count < 0) throw new Error('count must be 0 or larger');
 
-  const inner = this;
+  const source = this;
 
-  function* generator() {
-    let current = -1;
+  const result = {
+    *[Symbol.iterator]() {
+      let current = 0;
 
-    for (const element of inner) {
-      current++;
+      for (const element of source) {
+        if (current < count) {
+          current++;
+          continue;
+        }
 
-      if (current < count) continue;
+        yield element;
+      }
+    },
+  };
 
-      yield element;
-    }
-  }
-
-  return Enumerable.from(generator);
+  return Object.setPrototypeOf(result, Enumerable.prototype) as IEnumerable<TSource>;
 }

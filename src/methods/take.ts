@@ -1,21 +1,25 @@
 import { Enumerable } from '../Enumerable';
+import { IEnumerable } from '../IEnumerable';
 
-export function take<T>(this: Enumerable<T>, count: number) {
-  if (count <= 0) throw new Error('take count must be 0 or larger');
+export function take<TSource>(this: IEnumerable<TSource>, count: number): IEnumerable<TSource> {
+  if (count < 0) throw new Error('count must be 0 or larger');
 
-  const inner = this;
+  const source = this;
 
-  function* generator() {
-    let current = -1;
+  const result = {
+    *[Symbol.iterator]() {
+      let current = 0;
 
-    for (const element of inner) {
-      current++;
+      for (const element of source) {
+        if (current >= count) {
+          return;
+        }
 
-      if (current >= count) return;
+        current++;
+        yield element;
+      }
+    },
+  };
 
-      yield element;
-    }
-  }
-
-  return Enumerable.from(generator);
+  return Object.setPrototypeOf(result, Enumerable.prototype) as IEnumerable<TSource>;
 }

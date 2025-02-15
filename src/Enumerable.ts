@@ -1,55 +1,90 @@
+import { IEnumerable } from './IEnumerable';
 import * as methods from './methods';
 
-export class Enumerable<T> implements Iterable<T> {
+export class Enumerable<T> implements IEnumerable<T> {
   private constructor(protected readonly source: Iterable<T>) {}
 
-  // Factory method accepting an Iterable or a function that returns an Iterable.
-  public static from<T>(source: Iterable<T> | (() => Iterable<T>)): Enumerable<T> {
-    if (typeof source === 'function') {
-      // If a function is provided, call it to get the iterable.
-      return new Enumerable(source());
-    } else {
-      return new Enumerable(source);
-    }
-  }
-
-  // Allow for iteration over the underlying source.
   [Symbol.iterator](): Iterator<T> {
     return this.source[Symbol.iterator]();
   }
 
-  public static range = methods.range;
-  public static repeat = methods.repeat;
-  public static empty = methods.empty;
+  static from<T>(source: Iterable<T>): IEnumerable<T> {
+    return new Enumerable(source);
+  }
 
-  public all = methods.all;
-  public any = methods.any;
-  public append = methods.append;
-  public batch = methods.batch;
-  public concat = methods.concat;
-  public count = methods.count;
-  public distinct = methods.distinct;
-  public distinctBy = methods.distinctBy;
-  public first = methods.first;
-  public firstBy = methods.firstBy;
-  public firstOrDefault = methods.firstOrDefault;
-  public firstOrDefaultBy = methods.firstOrDefaultBy;
-  public groupBy = methods.groupBy;
-  public intersect = methods.intersect;
-  public intersectBy = methods.intersectBy;
-  public leftJoin = methods.leftJoin;
-  public max = methods.max;
-  public maxBy = methods.maxBy;
-  public min = methods.min;
-  public minBy = methods.minBy;
-  public select = methods.select;
-  public skip = methods.skip;
-  public take = methods.take;
-  public toArray = methods.toArray;
-  public toLookup = methods.toLookup;
-  public toMap = methods.toMap;
-  public toSet = methods.toSet;
-  public union = methods.union;
-  public unionBy = methods.unionBy;
-  public where = methods.where;
+  // static
+  static range = methods.range;
+  static repeat = methods.repeat;
+  static empty = methods.empty;
+
+  // instance
+  // aggregate = methods.aggregate;
+  all = methods.all;
+  any = methods.any;
+  append = methods.append;
+  chunk = methods.chunk;
+  concat = methods.concat;
+  contains = methods.contains;
+  count = methods.count;
+  countBy = methods.countBy;
+  // distinct = methods.distinct;
+  // distinctBy = methods.distinctBy;
+  // first = methods.first;
+  // firstBy = methods.firstBy;
+  // firstOrDefault = methods.firstOrDefault;
+  // firstOrDefaultBy = methods.firstOrDefaultBy;
+  // groupBy = methods.groupBy;
+  // intersect = methods.intersect;
+  // intersectBy = methods.intersectBy;
+  // leftJoin = methods.leftJoin;
+  // max = methods.max;
+  // maxBy = methods.maxBy;
+  // min = methods.min;
+  // minBy = methods.minBy;
+  select = methods.select;
+  selectMany = methods.selectMany;
+  skip = methods.skip;
+  take = methods.take;
+  toArray = methods.toArray;
+  // toLookup = methods.toLookup;
+  // toMap = methods.toMap;
+  // toSet = methods.toSet;
+  // union = methods.union;
+  // unionBy = methods.unionBy;
+  where = methods.where;
 }
+
+// Enumerable.prototype.aggregate = methods.aggregate;
+Enumerable.prototype.all = methods.all;
+Enumerable.prototype.any = methods.any;
+Enumerable.prototype.append = methods.append;
+Enumerable.prototype.chunk = methods.chunk;
+Enumerable.prototype.concat = methods.concat;
+Enumerable.prototype.contains = methods.contains;
+Enumerable.prototype.count = methods.count;
+Enumerable.prototype.countBy = methods.countBy;
+// Enumerable.prototype.distinct = methods.distinct;
+// Enumerable.prototype.distinctBy = methods.distinctBy;
+// Enumerable.prototype.first = methods.first;
+// Enumerable.prototype.firstBy = methods.firstBy;
+// Enumerable.prototype.firstOrDefault = methods.firstOrDefault;
+// Enumerable.prototype.firstOrDefaultBy = methods.firstOrDefaultBy;
+// Enumerable.prototype.groupBy = methods.groupBy;
+// Enumerable.prototype.intersect = methods.intersect;
+// Enumerable.prototype.intersectBy = methods.intersectBy;
+// Enumerable.prototype.leftJoin = methods.leftJoin;
+// Enumerable.prototype.max = methods.max;
+// Enumerable.prototype.maxBy = methods.maxBy;
+// Enumerable.prototype.min = methods.min;
+// Enumerable.prototype.minBy = methods.minBy;
+Enumerable.prototype.select = methods.select;
+Enumerable.prototype.selectMany = methods.selectMany;
+Enumerable.prototype.skip = methods.skip;
+Enumerable.prototype.take = methods.take;
+Enumerable.prototype.toArray = methods.toArray;
+// Enumerable.prototype.toLookup = methods.toLookup;
+// Enumerable.prototype.toMap = methods.toMap;
+// Enumerable.prototype.toSet = methods.toSet;
+// Enumerable.prototype.union = methods.union;
+// Enumerable.prototype.unionBy = methods.unionBy;
+Enumerable.prototype.where = methods.where;
