@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.dist.json",
   "compilerOptions": {
     "baseUrl": ".",
     "declaration": true,
@@ -7,6 +8,5 @@
     "removeComments": false,
     "rootDir": "src",
     "strict": true
-  },
-  "extends": "./tsconfig.json"
+  }
 }

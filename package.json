@@ -1,17 +1,17 @@
 {
-  "name": "@wesleythorsen/enumerable-js",
-  "version": "0.1.2",
-  "description": "A TypeScript based LINQ implementation with deferred execution",
+  "name": "@bussin/list-comprehensions",
+  "version": "0.1.0",
+  "description": "TypeScript list comprehensions with deferred execution. In the LINQ style.",
   "private": false,
   "repository": {
     "type": "github",
-    "url": "https://github.com/wesleythorsen1/enumerable-js"
+    "url": "https://github.com/wesleythorsen1/list-comprehensions"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "scripts": {
-    "build": "concurrently 'npm:build:cjs' 'npm:build:es' 'npm:build:types'",
+    "build": "npm ci && concurrently 'npm:build:cjs' 'npm:build:es' 'npm:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json && tsc-alias",
     "build:es": "tsc -p tsconfig.es.json && tsc-alias",
     "build:types": "tsc -p tsconfig.types.json && tsc-alias",

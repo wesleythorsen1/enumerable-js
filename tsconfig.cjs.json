@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.dist.json",
   "compilerOptions": {
     "baseUrl": ".",
     "importHelpers": true,
@@ -9,6 +10,5 @@
     "sourceMap": true,
     "strict": true,
     "target": "ES2018"
-  },
-  "extends": "./tsconfig.json"
+  }
 }
